@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#5b142b">
+<meta name="description" content="Aashapura Rajputi Riwaaz - Rajputi, Kundan and artificial jewellery.">
+<title>Aashapura Rajputi Riwaaz | Jewellery</title>
+<style>
+:root{--wine:#5b142b;--rose:#8c3450;--gold:#c99a45;--cream:#fffaf3;--ink:#281b20;--muted:#796b6e}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:linear-gradient(120deg,#3b0c1b,#76243d);color:white;padding:18px 5vw 24px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1100px;margin:auto}
+.brand{display:flex;align-items:center;gap:12px}.seal{width:54px;height:54px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#f7d99a;font-size:25px;background:#521327}
+.brand h1{font-family:Georgia,serif;font-size:clamp(18px,3vw,27px);margin:0}.brand small{color:#f4dcae;letter-spacing:1.5px}
+.cartbtn,.cta{border:0;border-radius:999px;padding:11px 17px;font-weight:700;cursor:pointer}.cartbtn{background:#fff;color:var(--wine)}
+.hero{max-width:1100px;margin:34px auto 0;display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center}
+.hero h2{font-family:Georgia,serif;font-size:clamp(32px,6vw,56px);line-height:1.05;margin:0 0 14px;color:#fff0d4}
+.hero p{max-width:550px;color:#f6e8e7;font-size:16px;line-height:1.7}.hero-art{min-height:210px;border:1px solid #c99a4580;border-radius:22px;background:radial-gradient(circle at 50% 45%,#a75c53,#5b142b 70%);display:grid;place-items:center;text-align:center;color:#ffe8b5;padding:25px}
+.hero-art .orn{font-size:72px;line-height:1}.hero-art b{font-family:Georgia,serif;font-size:22px}
+main{max-width:1100px;margin:0 auto;padding:30px 5vw 60px}
+.intro{text-align:center;margin-bottom:24px}.intro h2{font-family:Georgia,serif;color:var(--wine);font-size:30px;margin:0 0 5px}.intro p{color:var(--muted);margin:0}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;margin:24px 0}
+input,select{border:1px solid #e3d5d0;border-radius:12px;padding:12px;background:white;font:inherit;min-width:0}
+#search{flex:1;min-width:180px}.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{border:1px solid #e4d4d0;background:white;color:var(--wine);padding:9px 14px;border-radius:999px;cursor:pointer}
+.filters button.active{background:var(--wine);color:white}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:white;border:1px solid #eee2dc;border-radius:18px;overflow:hidden;box-shadow:0 5px 18px #38101a0b}
+.photo{height:190px;background:linear-gradient(135deg,#f8e8d9,#e8c7bd);display:grid;place-items:center;color:#7c3948;font-size:58px}
+.photo img{width:100%;height:100%;object-fit:cover}.details{padding:15px}.details h3{margin:0 0 5px;color:var(--wine);font-size:18px}.details p{margin:0 0 12px;color:var(--muted);font-size:13px;min-height:36px}
+.price{font-weight:800;font-size:18px}.add{width:100%;margin-top:12px;background:var(--wine);color:white;border:0;padding:11px;border-radius:11px;font-weight:700;cursor:pointer}
+.empty{grid-column:1/-1;text-align:center;padding:35px;color:var(--muted);background:white;border-radius:15px}
+.info{margin-top:34px;padding:22px;background:#f5e9e2;border-radius:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:15px;text-align:center}
+.info b{display:block;color:var(--wine);margin-bottom:4px}.info span{font-size:13px;color:var(--muted)}
+footer{background:#32101d;color:#f7e8e3;text-align:center;padding:24px 15px;font-size:13px}
+footer a{color:#f5cf86}
+.overlay{position:fixed;inset:0;background:#17070dbb;display:none;z-index:5;align-items:flex-end;justify-content:center}.overlay.open{display:flex}
+.panel{background:white;border-radius:22px 22px 0 0;width:min(600px,100%);max-height:85vh;overflow:auto;padding:22px}
+.panelhead{display:flex;justify-content:space-between;align-items:center}.panel h2{color:var(--wine);margin:0}.close{border:0;background:#f4e9e7;border-radius:50%;width:38px;height:38px;font-size:20px}
+.cartline{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #eee;padding:12px 0}.cartline small{display:block;color:var(--muted)}.qty{display:flex;align-items:center;gap:8px}.qty button{border:0;border-radius:8px;padding:5px 10px;background:#f3e5e3}
+.total{font-size:20px;font-weight:800;text-align:right;margin:18px 0}.checkout{display:grid;gap:10px}.checkout .cta{background:#167a48;color:white;font-size:16px}
+.note{font-size:12px;color:var(--muted);line-height:1.5}
+@media(max-width:760px){.hero{grid-template-columns:1fr;margin-top:25px}.hero-art{min-height:145px}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.photo{height:150px}.info{grid-template-columns:1fr}.top{align-items:flex-start}}
+@media(max-width:420px){.grid{grid-template-columns:1fr}.photo{height:190px}.brand small{font-size:10px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="top">
+  <div class="brand"><div class="seal">👑</div><div><h1>AASHAPURA RAJPUTI RIWAAZ</h1><small>RAJPUTI • KUNDAN • ARTIFICIAL JEWELLERY</small></div></div>
+  <button class="cartbtn" onclick="openCart()">🛍️ Cart <span id="cartCount">0</span></button>
+ </div>
+ <section class="hero">
+  <div><h2>शाही अंदाज़,<br>हर खास मौके के लिए</h2><p>राजपूती और कुंदन ज्वेलरी के खूबसूरत कलेक्शन के साथ अपने हर लुक को खास बनाइए।</p><a href="#shop"><button class="cta" style="background:#f2d59c;color:#4a1425">कलेक्शन देखें</button></a></div>
+  <div class="hero-art"><div><div class="orn">💎</div><b>आपकी खूबसूरती, हमारी पहचान</b><p style="margin:7px 0 0;font-size:13px">Aashapura Rajputi Riwaaz</p></div></div>
+ </section>
+</header>
+<main id="shop">
+ <div class="intro"><h2>हमारा कलेक्शन</h2><p>अपनी पसंद की ज्वेलरी चुनें और WhatsApp पर ऑर्डर करें</p></div>
+ <div class="toolbar"><input id="search" placeholder="ज्वेलरी खोजें..." oninput="renderProducts()"><div class="filters" id="filters"></div></div>
+ <section class="grid" id="products"></section>
+ <section class="info">
+  <div>💖<b>खास कलेक्शन</b><span>राजपूती और कुंदन डिज़ाइन</span></div>
+  <div>💬<b>सीधा संपर्क</b><span>ऑर्डर WhatsApp पर कन्फर्म करें</span></div>
+  <div>🔒<b>सुरक्षित शुरुआत</b><span>वेबसाइट पर कार्ड/बैंक जानकारी नहीं ली जाती</span></div>
+ </section>
+</main>
+<footer><b>AASHAPURA RAJPUTI RIWAAZ</b><br>Rajputi | Kundan | Artificial Jewellery<br><span>ऑर्डर और जानकारी के लिए WhatsApp पर संपर्क करें</span><br><a id="footerWhats" href="#" target="_blank" rel="noopener">WhatsApp पर संपर्क करें</a><p>© <span id="year"></span> Aashapura Rajputi Riwaaz</p></footer>
+
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()">
+ <div class="panel">
+  <div class="panelhead"><h2>आपका Cart</h2><button class="close" onclick="closeCart()">×</button></div>
+  <div id="cartItems"></div><div class="total" id="total"></div>
+  <div class="checkout"><input id="customerName" placeholder="आपका नाम"><input id="customerArea" placeholder="शहर / पिनकोड (पूरा पता WhatsApp पर दें)"><button class="cta" onclick="sendOrder()">WhatsApp पर ऑर्डर भेजें</button></div>
+  <p class="note">ऑर्डर भेजने पर WhatsApp खुलेगा। कीमत, उपलब्धता, डिलीवरी और भुगतान का तरीका दुकानदार से वहीं कन्फर्म करें।</p>
+ </div>
+</div>
+<script>
+/* दुकान की सेटिंग: WhatsApp नंबर में देश कोड सहित 91 और फिर 10 अंकों का नंबर लिखें। */
+const SHOP = { whatsapp: "919667386868", currency: "₹" };
+/* अपने असली प्रोडक्ट, कीमत और फोटो यहाँ बदलें। फोटो के लिए image में फोटो का URL दें। */
+const products = [
+ {id:1,name:"राजपूती कुंदन हार",category:"Kundan",price:0,description:"अपनी असली कीमत और फोटो जोड़ें",image:"",symbol:"💎"},
+ {id:2,name:"ट्रेडिशनल चूड़ा सेट",category:"Bangles",price:0,description:"अपनी असली कीमत और फोटो जोड़ें",image:"",symbol:"💗"},
+ {id:3,name:"राजपूती झुमके",category:"Earrings",price:0,description:"अपनी असली कीमत और फोटो जोड़ें",image:"",symbol:"✨"}
+];
+let cart = {};
+let active = "सभी";
+const categories = ["सभी",...new Set(products.map(p=>p.category))];
+function money(n){return SHOP.currency+Number(n).toLocaleString("en-IN")}
+function renderFilters(){document.getElementById("filters").innerHTML=categories.map(c=>`<button class="${active===c?'active':''}" onclick="active=${JSON.stringify(c)};renderFilters();renderProducts()">${c}</button>`).join("")}
+function renderProducts(){
+ const q=document.getElementById("search").value.toLowerCase();
+ const shown=products.filter(p=>(active==="सभी"||p.category===active)&&(p.name.toLowerCase().includes(q)||p.category.toLowerCase().includes(q)));
+ document.getElementById("products").innerHTML=shown.length?shown.map(p=>`<article class="card"><div class="photo">${p.image?`<img src="${p.image}" alt="${p.name}" loading="lazy">`:p.symbol}</div><div class="details"><h3>${p.name}</h3><p>${p.description}</p><div class="price">${p.price>0?money(p.price):"कीमत जल्द जोड़ें"}</div><button class="add" onclick="addToCart(${p.id})" ${p.price<=0?'disabled style="opacity:.55;cursor:not-allowed"':''}>${p.price>0?"Cart में जोड़ें":"जल्द उपलब्ध"}</button></div></article>`).join(""):`<div class="empty">इस खोज में कोई प्रोडक्ट नहीं मिला।</div>`;
+}
+function addToCart(id){cart[id]=(cart[id]||0)+1;updateCartCount()}
+function updateCartCount(){document.getElementById("cartCount").textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+function openCart(){document.getElementById("overlay").classList.add("open");renderCart()}
+function closeCart(){document.getElementById("overlay").classList.remove("open")}
+function renderCart(){
+ const entries=Object.entries(cart).filter(([id,q])=>q>0);
+ document.getElementById("cartItems").innerHTML=entries.length?entries.map(([id,q])=>{let p=products.find(x=>x.id==id);return `<div class="cartline"><div><b>${p.name}</b><small>${money(p.price)} × ${q}</small></div><div class="qty"><button onclick="changeQty(${id},-1)">−</button>${q}<button onclick="changeQty(${id},1)">+</button></div></div>`}).join(""):"<p>आपका Cart खाली है।</p>";
+ document.getElementById("total").textContent="कुल: "+money(entries.reduce((s,[id,q])=>s+products.find(p=>p.id==id).price*q,0));
+}
+function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];updateCartCount();renderCart()}
+function sendOrder(){
+ const entries=Object.entries(cart).filter(([id,q])=>q>0);
+ if(!entries.length){alert("पहले Cart में प्रोडक्ट जोड़ें।");return}
+ if(!/^91\d{10}$/.test(SHOP.whatsapp)){alert("दुकानदार का सही WhatsApp नंबर अभी वेबसाइट में जोड़ना बाकी है। कृपया सेटअप निर्देश देखें।");return}
+ const name=document.getElementById("customerName").value.trim(),area=document.getElementById("customerArea").value.trim();
+ if(!name||!area){alert("कृपया अपना नाम और शहर / पिनकोड भरें।");return}
+ let lines=entries.map(([id,q])=>{let p=products.find(x=>x.id==id);return `${p.name} x ${q} = ${money(p.price*q)}`});
+ let total=entries.reduce((s,[id,q])=>s+products.find(p=>p.id==id).price*q,0);
+ let msg=`नमस्ते Aashapura Rajputi Riwaaz,%0Aमैं ऑर्डर करना चाहता/चाहती हूँ:%0A${encodeURIComponent(lines.join("\n"))}%0Aकुल: ${encodeURIComponent(money(total))}%0Aनाम: ${encodeURIComponent(name)}%0Aशहर/पिनकोड: ${encodeURIComponent(area)}%0Aकृपया उपलब्धता और डिलीवरी कन्फर्म करें।`;
+ window.open(`https://wa.me/${SHOP.whatsapp}?text=${msg}`,"_blank","noopener");
+}
+document.getElementById("year").textContent=new Date().getFullYear();
+document.getElementById("footerWhats").onclick=(e)=>{if(!/^91\d{10}$/.test(SHOP.whatsapp)){e.preventDefault();alert("WhatsApp नंबर जोड़ना बाकी है।")}else e.currentTarget.href="https://wa.me/"+SHOP.whatsapp};
+renderFilters();renderProducts();
+</script>
+</body></html>
